@@ -1,0 +1,5 @@
+---
+- name: General maintenance
+  hosts: all
+  roles:
+    - common

@@ -1,0 +1,26 @@
+---
+
+- name: install required packages
+  yum:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - autofs
+    - bash-completion
+    - cockpit
+    - net-tools
+    - nfs-utils
+    - nmap
+    - nss-pam-ldapd
+    - wget
+    - yum-cron
+
+- name: enable required services
+  systemd:
+    enabled: yes
+    name: "{{ item }}"
+    state: started
+  with_items:
+    - autofs
+    - cockpit.socket
+    - nslcd

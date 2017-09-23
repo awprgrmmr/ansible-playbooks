@@ -1,0 +1,6 @@
+---
+
+- name: configure root password
+  user:
+    name: root
+    password: "$6$A7Xj14xxtshEmPu.$YUaQfZan7ZTrq7XqJIY6semuhhuEskOqk9VvNruwhumk9fTTqJEdVz1QSYcNZeL9EIVnviLJUB9OtzRy.uymy/"

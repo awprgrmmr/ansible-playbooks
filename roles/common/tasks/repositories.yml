@@ -1,0 +1,41 @@
+---
+
+- name: enable local centos repositories
+  yum_repository:
+    baseurl: "http://store-dev01/centos/7/x86_64/{{ item }}/"
+    description : "Local - CentOS 7 - {{ item }}"
+    file: local
+    name: "local-{{ item }}"
+    gpgcheck: yes
+    gpgkey: "http://store-dev01/RPM-GPG-KEY-CentOS-7"
+  with_items:
+    - base
+    - updates
+    - extras
+
+- name: enable local custom centos repository
+  yum_repository:
+    baseurl: "http://store-dev01/centos/7/custom/"
+    description: "Local - CentOS 7 - custom"
+    file: local
+    name: "local-custom"
+    gpgcheck: no
+
+- name: enable local epel repository
+  yum_repository:
+    baseurl: "http://store-dev01/epel/"
+    description: "Local - epel"
+    file: local
+    name: "local-epel"
+    gpgcheck: yes
+    gpgkey: "http://store-dev01/RPM-GPG-KEY-EPEL-7"
+
+- name: disable default centos repositories
+  yum_repository:
+    name: "{{ item }}"
+    file: CentOS-Base
+    state: absent
+  with_items:
+    - base
+    - updates
+    - extras

@@ -1,0 +1,4 @@
+# Authentication
+# Root password
+# Autofs, nsswitch, and sudo configured
+# Cache nfs

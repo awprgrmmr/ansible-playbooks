@@ -3,4 +3,3 @@
   - include: services.yml
   - include: repositories.yml
   - include: root.yml
-  - include: update.yml
